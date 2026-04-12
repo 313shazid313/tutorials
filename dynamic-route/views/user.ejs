@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User</title>
+  </head>
+  <body>
+    <h1>User details</h1>
+    <p>Name : <%= user?.name%></p>
+    <p>Role : <%= user?.role%></p>
+
+    <% if(user){ %>
+     <%   if(user.role === "Admin"){ %>
+            <p><strong>this is admin</strong></p>
+      <%  }else if(user.role === "Editor"){  %> 
+            <p><strong>this is editor</strong></p>
+     <%   }else{  %>
+            <p><strong>this user has limited assess</strong></p>
+     <%   } %>
+  <%  }else { %>
+        <p><strong>No user available</strong></p>
+  <%  } %>
+  </body>
+</html>
