@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .table-container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead {
+        background: #4CAF50;
+        color: white;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+    }
+
+    tbody tr {
+        border-bottom: 1px solid #ddd;
+        transition: 0.2s;
+    }
+
+    tbody tr:hover {
+        background: #f1f1f1;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #fafafa;
+    }
+</style>
+
+<body>
+    <div class="table-container">
+        <h2>Student List</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Section</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% student.forEach((data)=> { %>
+                    <tr>
+                        <td>
+                            <%= data.name %>
+                        </td>
+                        <td>
+                            <%= data.sec %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
