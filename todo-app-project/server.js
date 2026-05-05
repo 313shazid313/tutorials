@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
+import route from "./routes/todo.route.js";
 
 const app = express();
 
@@ -15,6 +16,15 @@ app.get("/", (req, res) => {
   }
 });
 
-app.listen(8000, ()=>{
-    console.log("ok!")
-})
+app.use("/", route);
+
+mongoose
+  .connect("mongodb://localhost:27017/todos")
+  .then(() => {
+    app.listen(8000, () => {
+      console.log("ok!");
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
